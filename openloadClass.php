@@ -99,6 +99,8 @@
 
 		private function fileRename($inputArray){
 			//$inputArray = array("file"=>"h9i10j11k","name"=>"my awesome file v2")
+			$res = $this->curlBuilder('fileInfo',array("file"=>$inputArray['file']));
+			$inputArray['name'] = $inputArray['name'].'.'.pathinfo($res["result"][$inputArray['file']]["name"], PATHINFO_EXTENSION);
 			return $this->host.'/file/rename?'.$this->queryBuilder($inputArray);
 		}
 

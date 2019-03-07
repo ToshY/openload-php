@@ -14,7 +14,7 @@ print_r($res);
 - Required: 
 	FileCode(s); if multiple files, please comma seperate
 */
-$res = $opl->curlBuilder("fileInfo",array("file"=>"d5e6f7g8,h9i10j11k");
+$res = $opl->curlBuilder("fileInfo",array("file"=>"d5e6f7g8,h9i10j11k"));
 print_r($res);
 
 # Get upload server

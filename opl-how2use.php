@@ -3,7 +3,7 @@
 require_once 'openloadClass.php';
 
 # Pass your API login & key from the OPENLOAD/STREAMANGO user panel in here
-$opl = new OpenloadMain("https://api.openload.co/1","y29psa10mv73x02s","f00b4rz");
+$opl = new OpenloadMain('https://api.openload.co/1','ol.json');
 
 # Get account info
 $res = $opl->curlBuilder("accountInfo");

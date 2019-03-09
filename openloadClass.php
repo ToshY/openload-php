@@ -3,17 +3,19 @@
    * PHP class for Openload/Streamango API
    * 
    * @author     ToishY
-   * @version    1.0.1
+   * @version    1.0.2
    */
 	class OpenloadMain{
 		private $log;
 		private $key;
 		public $host;
 
-		function __construct($apiHost, $apiLogin, $apiKey){
-			$this->host = $apiHost; #https://api.openload || https://api.fruithosted.net
-			$this->log = $apiLogin;
-			$this->key = $apiKey; 
+		function __construct($apiHost, $apiCreds){
+			$t = json_decode(file_get_contents($apiCreds),true);
+			$this->log = $t['L'];
+			$this->key = $t['K']; 
+			$this->host = $apiHost;
+			unset($t);
 		}
 
 		public function curlBuilder($functionName, $functionArgs = NULL){
@@ -87,7 +89,7 @@
 			return $this->host.'/remotedl/status?'.$this->queryBuilder($inputArray);
 		}
 
-		private function folderList($folderId = NULL){
+		private function folderList($inputArray = NULL){
 			//$inputArray = array("folder"=>0)
 			return $this->host.'/file/listfolder?'.$this->queryBuilder($inputArray);
 		}

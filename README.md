@@ -1,3 +1,5 @@
+# OPENLOAD IS DEAD
+
 # openload-php
 PHP class for the [Openload](https://openload.co/api) / [Streamango](https://streamango.com/api) API
 
